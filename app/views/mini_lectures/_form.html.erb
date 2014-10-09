@@ -1,0 +1,17 @@
+<%= form_for(@mini_lecture) do |f| %>
+  <% if @mini_lecture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mini_lecture.errors.count, "error") %> prohibited this mini_lecture from being saved:</h2>
+
+      <ul>
+      <% @mini_lecture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

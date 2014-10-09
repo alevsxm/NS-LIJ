@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @pico_question.question %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @pico_question.summary %>
+</p>
+
+<%= link_to 'Edit', edit_pico_question_path(@pico_question) %> |
+<%= link_to 'Back', pico_questions_path %>

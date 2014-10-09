@@ -1,0 +1,27 @@
+<h1>Listing pico_questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Summary</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pico_questions.each do |pico_question| %>
+      <tr>
+        <td><%= pico_question.question %></td>
+        <td><%= pico_question.summary %></td>
+        <td><%= link_to 'Show', pico_question %></td>
+        <td><%= link_to 'Edit', edit_pico_question_path(pico_question) %></td>
+        <td><%= link_to 'Destroy', pico_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pico question', new_pico_question_path %>
