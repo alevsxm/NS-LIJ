@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
+<%= link_to "Download", @mini_lecture.document.url(:original, false) %>
 <%= link_to 'Edit', edit_mini_lecture_path(@mini_lecture) %> |
 <%= link_to 'Back', mini_lectures_path %>

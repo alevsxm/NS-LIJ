@@ -11,15 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008213118) do
+ActiveRecord::Schema.define(version: 20141010160849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "medical_categories", force: true do |t|
+    t.string   "category_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "mini_lectures", force: true do |t|
     t.string   "topic"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.integer  "medical_categories_id"
   end
 
   create_table "pico_questions", force: true do |t|
@@ -28,6 +39,7 @@ ActiveRecord::Schema.define(version: 20141008213118) do
     t.text     "article_link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "medical_categories_id"
   end
 
   create_table "users", force: true do |t|

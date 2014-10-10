@@ -69,6 +69,6 @@ class PicoQuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pico_question_params
-      params.require(:pico_question).permit(:question, :summary)
+      params.require(:pico_question).permit(:question, :summary, :article_link)
     end
 end

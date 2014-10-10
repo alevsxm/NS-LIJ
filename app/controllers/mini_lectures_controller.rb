@@ -24,6 +24,7 @@ class MiniLecturesController < ApplicationController
   # POST /mini_lectures
   # POST /mini_lectures.json
   def create
+    binding.pry
     @mini_lecture = MiniLecture.new(mini_lecture_params)
 
     respond_to do |format|
@@ -69,6 +70,6 @@ class MiniLecturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mini_lecture_params
-      params[:mini_lecture]
+      params.require(:mini_lecture).permit(:topic, :document)
     end
 end

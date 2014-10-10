@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :medical_categories
+
   root 'application#index'
 
   resources :users

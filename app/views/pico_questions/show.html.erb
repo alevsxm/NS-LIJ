@@ -10,5 +10,10 @@
   <%= @pico_question.summary %>
 </p>
 
+<p>
+  <strong>Article Link:</strong>
+  <%= link_to "#{@pico_question.article_link}", "http://#{@pico_question.article_link}" %>
+</p>
+
 <%= link_to 'Edit', edit_pico_question_path(@pico_question) %> |
 <%= link_to 'Back', pico_questions_path %>

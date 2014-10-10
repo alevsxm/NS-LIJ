@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category name:</strong>
+  <%= @medical_category.category_name %>
+</p>
+
+<%= link_to 'Edit', edit_medical_category_path(@medical_category) %> |
+<%= link_to 'Back', medical_categories_path %>
