@@ -1,30 +1,22 @@
 class MiniLecturesController < ApplicationController
   before_action :set_mini_lecture, only: [:show, :edit, :update, :destroy]
 
-  # GET /mini_lectures
-  # GET /mini_lectures.json
   def index
     @mini_lectures = MiniLecture.all
   end
 
-  # GET /mini_lectures/1
-  # GET /mini_lectures/1.json
   def show
+    @medical_category = MedicalCategory.find(@mini_lecture.medical_category_id)
   end
 
-  # GET /mini_lectures/new
   def new
     @mini_lecture = MiniLecture.new
   end
 
-  # GET /mini_lectures/1/edit
   def edit
   end
 
-  # POST /mini_lectures
-  # POST /mini_lectures.json
   def create
-    binding.pry
     @mini_lecture = MiniLecture.new(mini_lecture_params)
 
     respond_to do |format|
@@ -38,8 +30,6 @@ class MiniLecturesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /mini_lectures/1
-  # PATCH/PUT /mini_lectures/1.json
   def update
     respond_to do |format|
       if @mini_lecture.update(mini_lecture_params)
@@ -52,8 +42,6 @@ class MiniLecturesController < ApplicationController
     end
   end
 
-  # DELETE /mini_lectures/1
-  # DELETE /mini_lectures/1.json
   def destroy
     @mini_lecture.destroy
     respond_to do |format|
@@ -70,6 +58,6 @@ class MiniLecturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mini_lecture_params
-      params.require(:mini_lecture).permit(:topic, :document)
+      params.require(:mini_lecture).permit(:topic, :document, :medical_category_id)
     end
 end

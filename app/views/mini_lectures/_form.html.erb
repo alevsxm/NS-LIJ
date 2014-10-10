@@ -19,6 +19,10 @@
     <%= f.label :document %><br>
     <%= f.file_field :document %>
   </div>
+  <div class="field">
+    <%= f.label :medical_category_id %>
+    <%= f.collection_select :medical_category_id, MedicalCategory.all, :id, :category_name%>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -7,6 +7,16 @@ class MedicalCategoriesController < ApplicationController
     @medical_categories = MedicalCategory.all
   end
 
+  def specific_mini_lectures
+    @medical_category = MedicalCategory.find(params[:id])
+    @mini_lectures = MiniLecture.where({medical_category_id: @medical_category.id})
+  end
+
+  def specific_pico_questions
+    @medical_category = MedicalCategory.find(params[:id])
+    @pico_questions = PicoQuestion.where({medical_category_id: @medical_category.id})
+  end
+
   # GET /medical_categories/1
   # GET /medical_categories/1.json
   def show

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Category:</strong>
+  <%= @medical_category.category_name %>
+</p>
+
+<p>
   <strong>Question:</strong>
   <%= @pico_question.question %>
 </p>
@@ -12,7 +17,7 @@
 
 <p>
   <strong>Article Link:</strong>
-  <%= link_to "#{@pico_question.article_link}", "http://#{@pico_question.article_link}" %>
+  <%= link_to "#{@pico_question.article_link}", "http://#{@pico_question.article_link}", :target => "_blank" %>
 </p>
 
 <%= link_to 'Edit', edit_pico_question_path(@pico_question) %> |

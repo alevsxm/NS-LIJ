@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20141010160849) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
-    t.integer  "medical_categories_id"
+    t.integer  "medical_category_id"
   end
 
   create_table "pico_questions", force: true do |t|
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20141010160849) do
     t.text     "article_link"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "medical_categories_id"
+    t.integer  "medical_category_id"
   end
 
   create_table "users", force: true do |t|

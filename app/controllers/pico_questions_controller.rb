@@ -10,6 +10,7 @@ class PicoQuestionsController < ApplicationController
   # GET /pico_questions/1
   # GET /pico_questions/1.json
   def show
+    @medical_category = MedicalCategory.find(@pico_question.medical_category_id)
   end
 
   # GET /pico_questions/new
@@ -24,6 +25,7 @@ class PicoQuestionsController < ApplicationController
   # POST /pico_questions
   # POST /pico_questions.json
   def create
+    binding.pry
     @pico_question = PicoQuestion.new(pico_question_params)
 
     respond_to do |format|
@@ -69,6 +71,6 @@ class PicoQuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pico_question_params
-      params.require(:pico_question).permit(:question, :summary, :article_link)
+      params.require(:pico_question).permit(:question, :summary, :article_link, :medical_category_id)
     end
 end

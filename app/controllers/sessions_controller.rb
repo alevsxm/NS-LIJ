@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:current_user] = user.id
-      redirect_to root_path
+      redirect_to medical_categories_path
     else
       flash[:error] = "incorrect username or password"
       redirect_to login_path

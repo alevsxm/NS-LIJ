@@ -4,6 +4,6 @@ class MedicalCategory < ActiveRecord::Base
   has_many :pico_questions, dependent: :destroy
 
   validates :category_name, presence: true
-  validates :category_name, uniquenesss: true
-  
+  validates :category_name, uniqueness: true
+
 end

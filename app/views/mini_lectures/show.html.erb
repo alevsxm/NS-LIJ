@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Category:</strong>
+  <%= @medical_category.category_name %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @mini_lecture.topic %>
+</p>
 
 <%= link_to "Download", @mini_lecture.document.url(:original, false) %>
+
 <%= link_to 'Edit', edit_mini_lecture_path(@mini_lecture) %> |
 <%= link_to 'Back', mini_lectures_path %>
