@@ -1,0 +1,15 @@
+<div id="category-header">
+  <h1><%= @medical_category.category_name %> Mini Lectures</h1>
+  <nav>
+    <%= link_to 'New Mini Lecture', new_mini_lecture_path %>
+  </nav>
+</div>
+<div id="list-container">
+  <% @mini_lectures.each do |mini_lecture| %>
+  <div class="list-item">
+    <p class="title"><%= link_to 'Topic', mini_lecture_path(mini_lecture) %></p>
+    <p><%= mini_lecture.topic %></p>
+    <p><%= link_to "Download Document", mini_lecture.document.url(:original, false) %></p>
+  </div>
+  <% end %>
+</div>

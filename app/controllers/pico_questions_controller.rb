@@ -1,5 +1,6 @@
 class PicoQuestionsController < ApplicationController
   before_action :set_pico_question, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate
 
   # GET /pico_questions
   # GET /pico_questions.json

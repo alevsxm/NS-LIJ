@@ -1,3 +1,74 @@
 // Place all the styles related to the MedicalCategories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#category-header {
+  h1 {
+    text-align: center;
+    font-size: 40px;
+  }
+  nav {
+    float: right;
+    padding-right: 30px;
+    a {
+    color: #33CCFF;
+    }
+  }
+}
+
+#medical-category-container {
+  text-align: center;
+  margin-top: 25px;
+}
+
+a.category {
+  background-color: #0066FF;
+  border-radius: 0.6em;
+  color: white;
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+  padding: .75em 1em;
+  text-decoration: none;
+  border: none;
+  width: 20%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: white;
+
+  &:visited {
+    color: white;
+  }
+
+  &:hover {
+    background-color: #002966;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+p.title {
+  font-weight: bold;
+}
+
+#list-container {
+  width: 50%;
+  margin: 25px auto 0 auto;
+  border-bottom: 1px solid black;
+  padding: 7px;
+
+  a{
+    color: black;
+    text-decoration: underline;
+    &:hover {
+      background-color: white;
+    }
+  }
+
+  p {
+    padding-bottom: 2px;
+  }
+}

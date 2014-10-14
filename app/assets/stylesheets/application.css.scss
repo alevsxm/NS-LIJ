@@ -1,0 +1,140 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+header {
+  background: #33CCFF;
+  color: white;
+  height: 50px;
+  margin-bottom: 10px;
+  a {
+    color: white;
+    &:visited {
+      color: white;
+      background: none; 
+    }
+  }
+}
+
+a {
+  color: #33CCFF;
+  text-decoration: none;
+  &:visited {
+    color: #33CCFF;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+header h1 {
+  float: left;
+  padding-left: 30px;
+  font-family: 'Rokkitt', serif;
+  font-size: 50px;
+}
+
+header nav {
+  text-align: right;
+  padding-right: 30px;
+  padding-top: 28px;
+
+}
+
+header li {
+  display: inline;
+}
+
+header li a {
+  color: white;
+  text-decoration: none;
+  &:visited {
+    color: white;
+  }
+}
+
+h2 {
+  font-size: 30px;
+}
+
+#landing {
+  height: 100vh;
+  background: black;
+  // text-align: center;
+  background-image: url("books.jpg");
+  background-size: cover;
+}
+
+
+#login-center{
+  position: absolute;
+}
+
+#login {
+  position: absolute;
+  width: 250px;
+  left: 50%;
+  margin-left: -125px;
+  margin-top: 18%;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 0.6em;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 100;
+
+  h2 {
+    padding-bottom: 5px;
+  }
+
+  #login-form {
+
+    input#username {
+      height: 20px;
+      width: 98%;
+    }
+
+    input#password {
+      height: 20px;
+      width: 98%;
+      margin-bottom: 5px;
+    }
+
+    input[name="commit"] {
+      background-color: #0066FF;
+      border-radius: 0.6em;;
+      color: white;
+      display: inline-block;
+      font-size: 0.65em;
+      font-weight: bold;
+      line-height: 1;
+      padding: .75em 1em;
+      text-decoration: none;
+      border: none;
+
+      &:hover {
+        background-color: #002966;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+}

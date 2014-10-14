@@ -4,3 +4,4 @@
 
 <%= link_to 'Show', @pico_question %> |
 <%= link_to 'Back', pico_questions_path %>
+<span><%= link_to 'Destroy', pico_question_path(@pico_question), method: :delete, data: { confirm: 'Are you sure?' } %></span>

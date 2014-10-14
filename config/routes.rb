@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'application#index'
+  # root 'application#index'
+  root 'medical_categories#index'
 
   resources :medical_categories
   get '/medical_categories/:id/pico_questions' => 'medical_categories#specific_pico_questions', :as => :specific_pico_questions

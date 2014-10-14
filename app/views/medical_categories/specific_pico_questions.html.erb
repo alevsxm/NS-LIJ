@@ -1,27 +1,18 @@
-<h1><%= @medical_category.category_name %> PICO Questions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Category name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pico_questions.each do |pico_question| %>
-      <tr>
-        <td><%= pico_question.question %></td>
-        <td><%= pico_question.summary %></td>
-        <td><%= link_to "#{pico_question.article_link}", "http://#{pico_question.article_link}" %></td>
-        <td><%= link_to 'Show', pico_question_path(pico_question) %></td>
-        <td><%= link_to 'Edit', edit_pico_question_path(pico_question) %></td>
-        <td><%= link_to 'Destroy', pico_question_path(pico_question), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New PICO Question', new_pico_question_path %>
+<div id="category-header">
+  <h1><%= @medical_category.category_name %> PICO Questions</h1>
+  <nav>
+    <%= link_to 'New PICO Question', new_pico_question_path %>
+  </nav>
+</div>
+<div id="list-container">
+  <% @pico_questions.each do |pico_question| %>
+  <div class="list-item">
+    <p class="title"><%= link_to 'Question', pico_question_path(pico_question) %></p>
+    <p><%= pico_question.question %></p>
+    <p class="title"><%= link_to 'Summary', pico_question_path(pico_question) %></p>
+    <p><%= pico_question.summary %></p>
+    <p class="title">Article Link</p>
+    <p><%= link_to "#{pico_question.article_link}", "http://#{pico_question.article_link}" %></p>
+  </div>
+  <% end %>
+</div>

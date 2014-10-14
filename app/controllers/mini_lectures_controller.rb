@@ -1,5 +1,6 @@
 class MiniLecturesController < ApplicationController
   before_action :set_mini_lecture, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate
 
   def index
     @mini_lectures = MiniLecture.all

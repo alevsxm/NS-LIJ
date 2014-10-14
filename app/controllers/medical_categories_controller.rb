@@ -1,5 +1,6 @@
 class MedicalCategoriesController < ApplicationController
   before_action :set_medical_category, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate
 
   # GET /medical_categories
   # GET /medical_categories.json

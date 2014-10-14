@@ -1,16 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Category name:</strong>
-  <%= @medical_category.category_name %>
-</p>
+<div id="category-header">
+  <h1><%= @medical_category.category_name %></h1>
+  <nav>
+    <%= link_to 'Edit This Category', edit_medical_category_path(@medical_category) %>
+  </nav>
+</div>
+<div id="medical-category-container">
+  <div class="category">
+    <%= link_to 'Mini Lectures', specific_mini_lectures_path, class: "category" %>
+  </div>
+  <div class="category">
+    <%= link_to 'PICO Questions', specific_pico_questions_path, class: "category" %>
+  </div>
+</div>
 
-<p>
-  <%= link_to 'Mini Lectures', specific_mini_lectures_path %>
-</p>
-<p>
-  <%= link_to 'PICO Questions', specific_pico_questions_path %>
-</p>
-
-<%= link_to 'Edit', edit_medical_category_path(@medical_category) %> |
 <%= link_to 'Back', medical_categories_path %>
