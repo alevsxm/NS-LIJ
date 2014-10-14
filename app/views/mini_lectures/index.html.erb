@@ -1,23 +1,15 @@
-<h1>Listing mini_lectures</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @mini_lectures.each do |mini_lecture| %>
-      <tr>
-        <td><%= link_to 'Show', mini_lecture %></td>
-        <td><%= link_to 'Edit', edit_mini_lecture_path(mini_lecture) %></td>
-        <td><%= link_to 'Destroy', mini_lecture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Mini lecture', new_mini_lecture_path %>
+<div id="category-header">
+  <h1>All Mini Lectures</h1>
+  <nav>
+    <%= link_to 'New Mini Lecture', new_mini_lecture_path %>
+  </nav>
+</div>
+<div id="list-container">
+  <% @mini_lectures.each do |mini_lecture| %>
+  <div class="list-item">
+    <p class="title"><%= link_to 'Topic', mini_lecture_path(mini_lecture) %></p>
+    <p><%= mini_lecture.topic %></p>
+    <p><%= link_to "Download Document", mini_lecture.document.url(:original, false) %></p>
+  </div>
+  <% end %>
+</div>

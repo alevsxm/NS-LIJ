@@ -1,6 +1,8 @@
-<h1>Editing mini_lecture</h1>
+<h2 class="show">Edit Mini Lecture</h2>
 
-<%= render 'form' %>
+<div id="show-container">
+  <%= render 'form' %>
+  <span><%= link_to 'Destroy', mini_lecture_path(@mini_lecture), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+</div>
 
-<%= link_to 'Show', @mini_lecture %> |
-<%= link_to 'Back', mini_lectures_path %>
+<%= link_to 'Back to Mini Lecture', @mini_lecture %>

@@ -1,7 +1,8 @@
-<h1>Editing pico_question</h1>
+<h2 class="show">Edit PICO Question</h2>
 
-<%= render 'form' %>
+<div id="show-container">
+  <%= render 'form' %>
+  <span><%= link_to 'Destroy', pico_question_path(@pico_question), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+</div>
 
-<%= link_to 'Show', @pico_question %> |
-<%= link_to 'Back', pico_questions_path %>
-<span><%= link_to 'Destroy', pico_question_path(@pico_question), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+<%= link_to 'Back to PICO Question', @pico_question %>

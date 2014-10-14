@@ -1,24 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @medical_category.category_name %>
-</p>
-
-<p>
-  <strong>Question:</strong>
-  <%= @pico_question.question %>
-</p>
-
-<p>
-  <strong>Summary:</strong>
-  <%= @pico_question.summary %>
-</p>
-
-<p>
-  <strong>Article Link:</strong>
-  <%= link_to "#{@pico_question.article_link}", "http://#{@pico_question.article_link}", :target => "_blank" %>
-</p>
-
-<%= link_to 'Edit', edit_pico_question_path(@pico_question) %> |
-<%= link_to 'Back', pico_questions_path %>
+<div id="show-container">
+  <p id="notice"><%= notice %></p>
+  <h2><%= @pico_question.question %></h2>
+  <p><span>Category: </span><%= @medical_category.category_name %></p>
+  <p><span>Summary: </span><%= @pico_question.summary %></p>
+  <p>
+    <span>Article Link: </span>
+    <%= link_to "#{@pico_question.article_link}", "http://#{@pico_question.article_link}", :target => "_blank" %>
+  </p>
+  <h4><%= link_to 'Edit', edit_pico_question_path(@pico_question) %></h4>
+  <!-- <%= link_to 'Back', pico_questions_path %> -->
+</div>

@@ -1,35 +1,36 @@
-<%= form_for(@pico_question) do |f| %>
-  <% if @pico_question.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pico_question.errors.count, "error") %> prohibited this pico_question from being saved:</h2>
 
-      <ul>
-      <% @pico_question.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <%= form_for(@pico_question) do |f| %>
+    <% if @pico_question.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@pico_question.errors.count, "error") %> prohibited this pico_question from being saved:</h2>
+
+        <ul>
+        <% @pico_question.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :question %><br>
+      <%= f.text_area :question %>
+    </div>
+    <div class="field">
+      <%= f.label :summary %><br>
+      <%= f.text_area :summary %>
+    </div>
+    <div class="field">
+      <%= f.label :article_link %><br>
+      <%= f.text_area :article_link %>
+    </div>
+
+    <div class="category-field">
+      <%= f.label :medical_category_id %>
+      <%= f.collection_select :medical_category_id, MedicalCategory.all, :id, :category_name%>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :question %><br>
-    <%= f.text_area :question %>
-  </div>
-  <div class="field">
-    <%= f.label :summary %><br>
-    <%= f.text_area :summary %>
-  </div>
-  <div class="field">
-    <%= f.label :article_link %><br>
-    <%= f.text_area :article_link %>
-  </div>
-
-  <div class="field">
-    <%= f.label :medical_category_id %>
-    <%= f.collection_select :medical_category_id, MedicalCategory.all, :id, :category_name%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
