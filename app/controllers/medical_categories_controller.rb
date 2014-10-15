@@ -56,11 +56,15 @@ class MedicalCategoriesController < ApplicationController
   end
 
   def destroy
-    @medical_category.destroy
-    authorize! :destroy, @medical_category
-    respond_to do |format|
-      format.html { redirect_to medical_categories_url, notice: 'Medical category was successfully destroyed.' }
-      format.json { head :no_content }
+    if @medical_category.has_dependencies?
+      redirect_to edit_medical_category_path, notice: 'You must remove or transfer any PICO Questions or Mini Lectures from this category before deleting it'
+    else
+      @medical_category.destroy
+      authorize! :destroy, @medical_category
+      respond_to do |format|
+        format.html { redirect_to medical_categories_url, notice: 'Medical category was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
