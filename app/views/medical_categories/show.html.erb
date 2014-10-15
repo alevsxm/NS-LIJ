@@ -2,9 +2,11 @@
 
 <div id="category-header">
   <h1><%= @medical_category.category_name %></h1>
-  <nav>
-    <%= link_to 'Edit This Category', edit_medical_category_path(@medical_category) %>
-  </nav>
+  <% if current_user.admin? %>
+    <nav>
+      <%= link_to 'Edit This Category', edit_medical_category_path(@medical_category) %>
+    </nav>
+  <% end %>
 </div>
 <div id="medical-category-container">
   <div class="category">

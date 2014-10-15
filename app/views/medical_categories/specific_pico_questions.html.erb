@@ -1,8 +1,10 @@
 <div id="category-header">
   <h1><%= @medical_category.category_name %> PICO Questions</h1>
+  <% if current_user.admin? %>
   <nav>
     <%= link_to 'New PICO Question', new_pico_question_path %>
   </nav>
+  <% end %>
 </div>
 <div id="list-container">
   <% @pico_questions.each do |pico_question| %>

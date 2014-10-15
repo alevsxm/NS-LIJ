@@ -1,8 +1,10 @@
 <div id="category-header">
   <h1><%= @medical_category.category_name %> Mini Lectures</h1>
+  <% if current_user.admin? %>
   <nav>
     <%= link_to 'New Mini Lecture', new_mini_lecture_path %>
   </nav>
+  <% end %>
 </div>
 <div id="list-container">
   <% @mini_lectures.each do |mini_lecture| %>

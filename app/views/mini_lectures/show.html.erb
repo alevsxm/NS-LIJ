@@ -3,5 +3,7 @@
   <p><span>Topic: </span><%= @mini_lecture.topic %></p>
   <p><span>Category: </span><%= @medical_category.category_name %></p>
   <p><%= link_to "Download Document", @mini_lecture.document.url(:original, false) %></p>
-  <h4><%= link_to 'Edit', edit_mini_lecture_path(@mini_lecture) %></h4>
+  <% if current_user.admin? %>
+    <h4><%= link_to 'Edit', edit_mini_lecture_path(@mini_lecture) %></h4>
+  <% end %>
 </div>

@@ -12,9 +12,11 @@ class MiniLecturesController < ApplicationController
 
   def new
     @mini_lecture = MiniLecture.new
+    authorize! :create, @mini_lecture
   end
 
   def edit
+    authorize! :edit, @mini_lecture
   end
 
   def create
@@ -33,6 +35,7 @@ class MiniLecturesController < ApplicationController
 
   def update
     respond_to do |format|
+      authorize! :update, @mini_lecture
       if @mini_lecture.update(mini_lecture_params)
         format.html { redirect_to @mini_lecture, notice: 'Mini lecture was successfully updated.' }
         format.json { render :show, status: :ok, location: @mini_lecture }
@@ -44,6 +47,7 @@ class MiniLecturesController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @mini_lecture
     @mini_lecture.destroy
     respond_to do |format|
       format.html { redirect_to mini_lectures_url, notice: 'Mini lecture was successfully destroyed.' }
@@ -52,12 +56,10 @@ class MiniLecturesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_mini_lecture
       @mini_lecture = MiniLecture.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def mini_lecture_params
       params.require(:mini_lecture).permit(:topic, :document, :medical_category_id)
     end
