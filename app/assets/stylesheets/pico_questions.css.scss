@@ -37,6 +37,14 @@ h2.show {
     margin-bottom: 10px;
     text-align: center;
   }
+  .delete {
+    text-align: right;
+    display: block;
+    a {
+      color: #CC0000;
+      text-decoration: none;
+    }
+  }
   .actions {
     text-align: center;
   }

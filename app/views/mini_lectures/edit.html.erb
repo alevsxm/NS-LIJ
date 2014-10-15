@@ -2,7 +2,9 @@
 
 <div id="show-container">
   <%= render 'form' %>
-  <span><%= link_to 'Destroy', mini_lecture_path(@mini_lecture), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+  <span class="delete"><%= link_to 'Delete Mini Lecture', mini_lecture_path(@mini_lecture), method: :delete,
+    data: { confirm: 'Are you sure you want to delete this Mini Lecture?' } %>
+  </span>
 </div>
 
 <%= link_to 'Back to Mini Lecture', @mini_lecture %>
