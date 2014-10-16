@@ -1,8 +1,10 @@
 <div id="category-header">
   <h1>Categories</h1>
-  <nav>
-    <%= link_to 'New Medical category', new_medical_category_path %>
-  </nav>
+  <% if current_user.admin %>
+    <nav>
+      <%= link_to 'New Medical category', new_medical_category_path %>
+    </nav>
+  <% end %>
 </div>
 <div id="medical-category-container">
   <% @medical_categories.each do |medical_category| %>
