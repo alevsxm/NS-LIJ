@@ -10,6 +10,10 @@
     <p class="title"><%= link_to 'Topic', mini_lecture_path(mini_lecture) %></p>
     <p><%= mini_lecture.topic %></p>
     <p><%= link_to "Download Document", mini_lecture.document.url(:original, false) %></p>
+    <p class="timestamp">
+      Created On: <%= mini_lecture.created_at.to_s(:long) %>,
+      Updated On: <%= mini_lecture.updated_at.to_s(:long) %>
+    </p>
   </div>
   <% end %>
 </div>

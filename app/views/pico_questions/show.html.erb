@@ -7,6 +7,10 @@
     <span>Article Link: </span>
     <%= link_to "#{@pico_question.article_link}", "http://#{@pico_question.article_link}", :target => "_blank" %>
   </p>
+  <p class="timestamp">
+    Created On: <%= @pico_question.created_at.to_s(:long) %>,
+    Updated On: <%= @pico_question.updated_at.to_s(:long) %>
+  </p>
   <% if current_user.admin? %>
     <h4><%= link_to 'Edit', edit_pico_question_path(@pico_question) %></h4>
   <% end %>

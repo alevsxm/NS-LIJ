@@ -15,6 +15,10 @@
     <p><%= pico_question.summary %></p>
     <p class="title">Article Link</p>
     <p><%= link_to "#{pico_question.article_link}", "http://#{pico_question.article_link}" %></p>
+    <p class="timestamp">
+      Created On: <%= pico_question.created_at.to_s(:long) %>,
+      Updated On: <%= pico_question.updated_at.to_s(:long) %>
+    </p>
   </div>
   <% end %>
 </div>
