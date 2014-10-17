@@ -7,6 +7,7 @@
 <div id="list-container">
   <% @pico_questions.each do |pico_question| %>
   <div class="list-item">
+    <p class="title"><%= (MedicalCategory.find(pico_question.medical_category_id)).category_name %></p>
     <p class="title"><%= link_to 'Question', pico_question_path(pico_question) %></p>
     <p><%= pico_question.question %></p>
     <p class="title"><%= link_to 'Summary', pico_question_path(pico_question) %></p>

@@ -7,6 +7,7 @@
 <div id="list-container">
   <% @mini_lectures.each do |mini_lecture| %>
   <div class="list-item">
+    <p class="title"><%= (MedicalCategory.find(mini_lecture.medical_category_id)).category_name %></p>
     <p class="title"><%= link_to 'Topic', mini_lecture_path(mini_lecture) %></p>
     <p><%= mini_lecture.topic %></p>
     <p><%= link_to "Download Document", mini_lecture.document.url(:original, false) %></p>
