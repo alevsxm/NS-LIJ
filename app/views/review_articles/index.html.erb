@@ -1,0 +1,23 @@
+<div id="category-header">
+  <h1>All Review Articles</h1>
+  <nav>
+    <%= link_to 'New Review Article', new_review_article_path %>
+  </nav>
+</div>
+<div id="list-container">
+  <% @review_articles.each do |review_article| %>
+  <div class="list-item">
+    <p class="title"><%= (MedicalCategory.find(review_article.medical_category_id)).category_name %></p>
+    <p class="title"><%= link_to 'Topic', review_article_path(review_article) %></p>
+    <p><%= review_article.topic %></p>
+    <p class="title"><%= link_to 'Summary', review_article_path(review_article) %></p>
+    <p><%= review_article.summary %></p>
+    <p class="title">Article Link</p>
+    <p><%= link_to "#{review_article.article_link}", "http://#{review_article.article_link}" %></p>
+    <p class="timestamp">
+      Created On: <%= review_article.created_at.to_s(:long) %>,
+      Updated On: <%= review_article.updated_at.to_s(:long) %>
+    </p>
+  </div>
+  <% end %>
+</div>

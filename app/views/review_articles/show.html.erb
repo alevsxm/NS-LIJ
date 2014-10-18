@@ -1,0 +1,17 @@
+<div id="show-container">
+  <p id="notice"><%= notice %></p>
+  <h2><%= @review_article.topic %></h2>
+  <p><span>Category: </span><%= @medical_category.category_name %></p>
+  <p><span>Summary: </span><%= @review_article.summary %></p>
+  <p>
+    <span>Article Link: </span>
+    <%= link_to "#{@review_article.article_link}", "http://#{@review_article.article_link}", :target => "_blank" %>
+  </p>
+  <p class="timestamp">
+    Created On: <%= @review_article.created_at.to_s(:long) %>,
+    Updated On: <%= @review_article.updated_at.to_s(:long) %>
+  </p>
+  <% if current_user.admin? %>
+    <h4><%= link_to 'Edit', edit_review_article_path(@review_article) %></h4>
+  <% end %>
+</div>

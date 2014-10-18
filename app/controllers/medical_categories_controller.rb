@@ -16,6 +16,11 @@ class MedicalCategoriesController < ApplicationController
     @pico_questions = PicoQuestion.where({medical_category_id: @medical_category.id})
   end
 
+  def specific_review_articles
+    @medical_category = MedicalCategory.find(params[:id])
+    @review_articles = ReviewArticle.where({medical_category_id: @medical_category.id})
+  end
+
   def show
   end
 

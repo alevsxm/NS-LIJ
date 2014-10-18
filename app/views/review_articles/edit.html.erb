@@ -1,0 +1,10 @@
+<h2>Edit Review Article</h2>
+
+<div id="show-container">
+  <%= render 'form' %>
+  <span class="delete"><%= link_to 'Delete Review Article', review_article_path(@review_article), method: :delete,
+    data: { confirm: 'Are you sure you want to delete this Review Article?' } %>
+  </span>
+</div>
+
+<%= link_to 'Back to Review Article', @review_article %>
