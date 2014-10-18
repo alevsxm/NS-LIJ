@@ -58,6 +58,41 @@ header nav {
   padding-right: 30px;
   padding-top: 28px;
 
+  ul a {
+    display: inline-block;
+  }
+
+  ul {
+    position: absolute;
+    right: 0;
+    margin-right: 30px;
+  }
+
+  ul li.data:hover {
+    cursor: pointer;
+  }
+
+  ul li ul {
+		display: none;  /* Hides the drop-down menu */
+		height: auto;
+		margin-right: 68px;
+    text-align: left;
+  }
+
+  ul li:hover ul {
+    display: block; /* Displays the drop-down box when the menu item is hovered over */
+  }
+
+  ul li ul li {
+    display: block;
+    padding: 6px 10px 6px 10px;
+    background: #33CCFF;
+
+    &:hover {
+      background: #0066FF;
+    }
+  }
+
 }
 
 header li {
