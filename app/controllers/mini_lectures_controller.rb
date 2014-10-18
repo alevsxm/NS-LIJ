@@ -3,7 +3,11 @@ class MiniLecturesController < ApplicationController
   before_action :authenticate
 
   def index
-    @mini_lectures = MiniLecture.all
+    @search = MiniLecture.search do
+      fulltext params[:search]
+    end
+    @mini_lectures = @search.results
+    # @mini_lectures = MiniLecture.all
   end
 
   def show

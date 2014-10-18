@@ -1,8 +1,12 @@
 <div id="category-header">
-  <h1>All Review Articles</h1>
+  <h1>Review Articles</h1>
   <nav>
     <%= link_to 'New Review Article', new_review_article_path %>
   </nav>
+  <%= form_tag(review_articles_path, method: :get) do |f| %>
+    <%= text_field_tag(:search, nil, placeholder: "Review Article Keyword Search") %>
+    <%= submit_tag("Search") %>
+  <% end %>
 </div>
 <div id="list-container">
   <% @review_articles.each do |review_article| %>

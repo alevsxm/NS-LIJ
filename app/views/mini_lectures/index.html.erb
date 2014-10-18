@@ -1,8 +1,12 @@
 <div id="category-header">
-  <h1>All Mini Lectures</h1>
+  <h1>Mini Lectures</h1>
   <nav>
     <%= link_to 'New Mini Lecture', new_mini_lecture_path %>
   </nav>
+  <%= form_tag(mini_lectures_path, method: :get) do |f| %>
+    <%= text_field_tag(:search, nil, placeholder: "Mini Lecture Keyword Search") %>
+    <%= submit_tag("Search") %>
+  <% end %>
 </div>
 <div id="list-container">
   <% @mini_lectures.each do |mini_lecture| %>

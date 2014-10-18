@@ -3,7 +3,10 @@ class ReviewArticlesController < ApplicationController
   before_action :authenticate
 
   def index
-    @review_articles = ReviewArticle.all
+    @search = ReviewArticle.search do
+      fulltext params[:search]
+    end
+    @review_articles = @search.results
   end
 
   def show
