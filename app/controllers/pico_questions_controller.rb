@@ -3,7 +3,11 @@ class PicoQuestionsController < ApplicationController
   before_action :authenticate
 
   def index
-    @pico_questions = PicoQuestion.all
+    @search = PicoQuestion.search do
+      fulltext params[:search]
+    end
+    @pico_questions = @search.results
+    # @pico_questions = PicoQuestion.all
   end
 
   def show

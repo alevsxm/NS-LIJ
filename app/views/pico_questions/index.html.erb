@@ -1,8 +1,14 @@
+
+
 <div id="category-header">
-  <h1>All PICO Questions</h1>
+  <h1>PICO Questions</h1>
   <nav>
     <%= link_to 'New PICO Question', new_pico_question_path %>
   </nav>
+  <%= form_tag(pico_questions_path, method: :get) do |f| %>
+    <%= text_field_tag(:search, nil, placeholder: "PICO Question Keyword Search") %>
+    <%= submit_tag("Search") %>
+  <% end %>
 </div>
 <div id="list-container">
   <% @pico_questions.each do |pico_question| %>
