@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  # root 'application#index'
   root 'medical_categories#index'
 
   resources :medical_categories
@@ -12,6 +11,9 @@ Rails.application.routes.draw do
   resources :pico_questions
   resources :mini_lectures
   resources :review_articles
+
+  get 'search'  => 'search#search',  :as => :search
+  get 'results' => 'search#results', :as => :results
 
   #Sessions
   get '/login'     => 'sessions#new'

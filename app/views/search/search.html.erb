@@ -1,0 +1,57 @@
+<div id="category-header">
+  <h1>Search Results</h1>
+  <nav>
+    <%= link_to 'Back To Categories', root_path %>
+  </nav>
+  <%= form_tag(search_path, method: :get) do |f| %>
+    <%= text_field_tag(:search, nil, placeholder: "Enter Keyword Search") %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
+<div id="list-container">
+  <% @search_results.each do |search_result| %>
+    <% if search_result.class == MiniLecture %>
+      <div class="list-item">
+        <p class="timestamp"><%= search_result.class.name %></p>
+        <p class="title"><%= (MedicalCategory.find(search_result.medical_category_id)).category_name %></p>
+        <p class="title"><%= link_to 'Topic', mini_lecture_path(search_result) %></p>
+        <p><%= search_result.topic %></p>
+        <p><%= link_to "Download Document", search_result.document.url(:original, false) %></p>
+        <p class="timestamp">
+          Created On: <%= search_result.created_at.to_s(:long) %>,
+          Updated On: <%= search_result.updated_at.to_s(:long) %>
+        </p>
+      </div>
+    <% elsif search_result.class == PicoQuestion %>
+      <div class="list-item">
+        <p class="timestamp"><%= search_result.class.name %></p>
+        <p class="title"><%= (MedicalCategory.find(search_result.medical_category_id)).category_name %></p>
+        <p class="title"><%= link_to 'Question', pico_question_path(search_result) %></p>
+        <p><%= search_result.question %></p>
+        <p class="title"><%= link_to 'Summary', pico_question_path(search_result) %></p>
+        <p><%= search_result.summary %></p>
+        <p class="title">Article Link</p>
+        <p><%= link_to "#{search_result.article_link}", "http://#{search_result.article_link}" %></p>
+        <p class="timestamp">
+          Created On: <%= search_result.created_at.to_s(:long) %>,
+          Updated On: <%= search_result.updated_at.to_s(:long) %>
+        </p>
+      </div>
+    <% else %>
+      <div class="list-item">
+        <p class="timestamp"><%= search_result.class.name %></p>
+        <p class="title"><%= (MedicalCategory.find(search_result.medical_category_id)).category_name %></p>
+        <p class="title"><%= link_to 'Topic', review_article_path(search_result) %></p>
+        <p><%= search_result.topic %></p>
+        <p class="title"><%= link_to 'Summary', review_article_path(search_result) %></p>
+        <p><%= search_result.summary %></p>
+        <p class="title">Article Link</p>
+        <p><%= link_to "#{search_result.article_link}", "http://#{search_result.article_link}" %></p>
+        <p class="timestamp">
+          Created On: <%= search_result.created_at.to_s(:long) %>,
+          Updated On: <%= search_result.updated_at.to_s(:long) %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -4,6 +4,10 @@
     <nav>
       <%= link_to 'New Medical category', new_medical_category_path %>
     </nav>
+    <%= form_tag(search_path, method: :get) do |f| %>
+      <%= text_field_tag(:search, nil, placeholder: "Enter Keyword Search") %>
+      <%= submit_tag("Search") %>
+    <% end %>
   <% end %>
 </div>
 <div id="medical-category-container">
