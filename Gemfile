@@ -47,6 +47,7 @@ end
 gem 'rails_12factor', group: :production
 
 gem 'paperclip'
+gem 'aws-sdk'
 gem 'pry-rails'
 gem 'awesome_print'
 gem 'cancancan', '~> 1.9'

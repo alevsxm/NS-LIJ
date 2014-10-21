@@ -79,4 +79,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Paperclip AWS Config
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['JAMAZON_BUCKET_NAME'],
+    :access_key_id => ENV['JAMAZON_API_KEY'],
+    :secret_access_key => ENV['JAMAZON_SECRET_KEY']
+  }
+}
 end
