@@ -3,10 +3,13 @@ class ReviewArticlesController < ApplicationController
   before_action :authenticate
 
   def index
-    @search = ReviewArticle.search do
-      fulltext params[:search]
-    end
-    @review_articles = @search.results
+    @search_params = params[:search]
+    @review_articles = ReviewArticle.where('topic ILIKE :value OR summary ILIKE :value', value: "%#{@search_params}%")
+
+    # @search = ReviewArticle.search do
+    #   fulltext params[:search]
+    # end
+    # @review_articles = @search.results
   end
 
   def show

@@ -15,8 +15,11 @@ class MiniLecture < ActiveRecord::Base
   validates :topic, presence: true
   validates_attachment_presence :document
 
-  searchable do
-    text :topic
-  end
+
+  # Solr Configuration
+
+  # searchable do
+  #   text :topic
+  # end
 
 end

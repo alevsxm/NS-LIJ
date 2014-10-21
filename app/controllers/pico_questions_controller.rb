@@ -3,11 +3,15 @@ class PicoQuestionsController < ApplicationController
   before_action :authenticate
 
   def index
-    @search = PicoQuestion.search do
-      fulltext params[:search]
-    end
-    @pico_questions = @search.results
-    # @pico_questions = PicoQuestion.all
+    @search_params = params[:search]
+    @pico_questions = PicoQuestion.where('question ILIKE :value OR summary ILIKE :value', value: "%#{@search_params}%")
+
+    # Solr Configuration
+
+    # @search = PicoQuestion.search do
+    #   fulltext params[:search]
+    # end
+    # @pico_questions = @search.results
   end
 
   def show

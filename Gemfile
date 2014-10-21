@@ -51,5 +51,6 @@ gem 'pry-rails'
 gem 'awesome_print'
 gem 'cancancan', '~> 1.9'
 
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+# Gems for Solr
+# gem 'sunspot_rails'
+# gem 'sunspot_solr'

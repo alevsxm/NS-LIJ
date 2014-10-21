@@ -3,11 +3,14 @@ class MiniLecturesController < ApplicationController
   before_action :authenticate
 
   def index
-    @search = MiniLecture.search do
-      fulltext params[:search]
-    end
-    @mini_lectures = @search.results
-    # @mini_lectures = MiniLecture.all
+    @search_params = params[:search]
+    @mini_lectures = MiniLecture.where('topic ILIKE :value', value: "%#{@search_params}%")
+
+    # Solr Search
+    # @search = MiniLecture.search do
+    #   fulltext params[:search]
+    # end
+    # @mini_lectures = @search.results
   end
 
   def show
