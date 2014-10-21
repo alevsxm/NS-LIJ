@@ -82,11 +82,11 @@ Rails.application.configure do
 
   # Paperclip AWS Config
   config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => ENV['JAMAZON_BUCKET_NAME'],
-    :access_key_id => ENV['JAMAZON_API_KEY'],
-    :secret_access_key => ENV['JAMAZON_SECRET_KEY']
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['JAMAZON_BUCKET_NAME'],
+      :access_key_id => ENV['JAMAZON_API_KEY'],
+      :secret_access_key => ENV['JAMAZON_SECRET_KEY']
+    }
   }
-}
 end

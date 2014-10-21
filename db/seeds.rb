@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.destroy_all
 MedicalCategory.destroy_all
+Mini_Lecture.destroy_all
+
 
 
 User.create({username: "admin", password: "admin", admin: true})
